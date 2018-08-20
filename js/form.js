@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   design.addEventListener('change', (event) => {
     
     if (event.target.value === 'js puns') {
+      color.selectedIndex = 0;
       document.getElementById("colors-js-puns").style.display = "block";
       colorChoices[0].style.display = 'block';
       colorChoices[1].style.display = 'block';
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       colorChoices[4].style.display = 'none';
       colorChoices[5].style.display = 'none';
     } else if (event.target.value === 'heart js') {
+      color.selectedIndex = 3;
       document.getElementById("colors-js-puns").style.display = "block";
       colorChoices[0].style.display = "none";
       colorChoices[1].style.display = "none";
@@ -79,39 +81,23 @@ document.addEventListener('DOMContentLoaded', () => {
         amountOwed += 200;
       } else if (checkBox.parentNode === activityChoices[2]) {
         activityChoices[4].childNodes[0].setAttribute('disabled', true);
-        activityChoices[6].childNodes[0].setAttribute('disabled', true);
         activityChoices[4].className = 'grey';
-        activityChoices[6].className = 'grey';
         amountOwed += 100;
       } else if (checkBox.parentNode === activityChoices[3]) {
         activityChoices[5].childNodes[0].setAttribute("disabled", true);
-        activityChoices[7].childNodes[0].setAttribute("disabled", true);
         activityChoices[5].className = "grey";
-        activityChoices[7].className = "grey";
         amountOwed += 100;
       } else if (checkBox.parentNode === activityChoices[4]) {
         activityChoices[2].childNodes[0].setAttribute("disabled", true);
-        activityChoices[6].childNodes[0].setAttribute("disabled", true);
         activityChoices[2].className = "grey";
-        activityChoices[6].className = "grey";
         amountOwed += 100;
       } else if (checkBox.parentNode === activityChoices[5]) {
         activityChoices[3].childNodes[0].setAttribute("disabled", true);
-        activityChoices[7].childNodes[0].setAttribute("disabled", true);
         activityChoices[3].className = "grey";
-        activityChoices[7].className = "grey";
         amountOwed += 100;
       } else if (checkBox.parentNode === activityChoices[6]) {
-        activityChoices[2].childNodes[0].setAttribute("disabled", true);
-        activityChoices[4].childNodes[0].setAttribute("disabled", true);
-        activityChoices[2].className = "grey";
-        activityChoices[4].className = "grey";
         amountOwed += 100;
       } else if (checkBox.parentNode === activityChoices[7]) {
-        activityChoices[3].childNodes[0].setAttribute("disabled", true);
-        activityChoices[5].childNodes[0].setAttribute("disabled", true);
-        activityChoices[3].className = "grey";
-        activityChoices[5].className = "grey";
         amountOwed += 100;
       }
     }
@@ -120,39 +106,23 @@ document.addEventListener('DOMContentLoaded', () => {
         amountOwed -= 200;
       } else if(checkBox.parentNode === activityChoices[2]) {
         activityChoices[4].childNodes[0].removeAttribute("disabled", true);
-        activityChoices[6].childNodes[0].removeAttribute("disabled", true);
         activityChoices[4].classList.remove("grey");
-        activityChoices[6].classList.remove("grey");
         amountOwed -= 100;
       } else if (checkBox.parentNode === activityChoices[3]) {
         activityChoices[5].childNodes[0].removeAttribute("disabled", true);
-        activityChoices[7].childNodes[0].removeAttribute("disabled", true);
         activityChoices[5].classList.remove("grey");
-        activityChoices[7].classList.remove("grey");
         amountOwed -= 100;
       } else if (checkBox.parentNode === activityChoices[4]) {
         activityChoices[2].childNodes[0].removeAttribute("disabled", true);
-        activityChoices[6].childNodes[0].removeAttribute("disabled", true);
         activityChoices[2].classList.remove("grey");
-        activityChoices[6].classList.remove("grey");
         amountOwed -= 100;
       } else if (checkBox.parentNode === activityChoices[5]) {
         activityChoices[3].childNodes[0].removeAttribute("disabled", true);
-        activityChoices[7].childNodes[0].removeAttribute("disabled", true);
         activityChoices[3].classList.remove("grey");
-        activityChoices[7].classList.remove("grey");
         amountOwed -= 100;
       } else if (checkBox.parentNode === activityChoices[6]) {
-        activityChoices[2].childNodes[0].removeAttribute("disabled", true);
-        activityChoices[4].childNodes[0].removeAttribute("disabled", true);
-        activityChoices[2].classList.remove("grey");
-        activityChoices[4].classList.remove("grey");
         amountOwed -= 100;
       } else if (checkBox.parentNode === activityChoices[7]) {
-        activityChoices[3].childNodes[0].removeAttribute("disabled", true);
-        activityChoices[5].childNodes[0].removeAttribute("disabled", true);
-        activityChoices[3].classList.remove("grey");
-        activityChoices[5].classList.remove("grey");
         amountOwed -= 100;
       } 
     }
