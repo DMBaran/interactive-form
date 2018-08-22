@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const activities = document.querySelector('.activities');
   const activityChoices = activities.children;
   const payment = document.getElementById('payment');
+  payment.children[0].className = "credit_card";
   const paragraph = document.getElementsByTagName('p');
   paragraph[0].style.display = 'none';
   paragraph[1].style.display = 'none';
@@ -25,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let amountOwed = 0;
   const invalidName = document.querySelector('.invalidName');
   const invalidEmail = document.querySelector('.invalidEmail');
-  const invalidPaymentMethod = document.querySelector('.invalidPaymentMethod');
   const invalidCardNumber = document.querySelector('.invalidCardNumber');
   const invalidZipCode = document.querySelector('.invalidZipCode');
   const invalidCVV = document.querySelector('.invalidCVV');
@@ -140,26 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
       creditCard.style.display = "block";
       paragraph[0].style.display = 'none';
       paragraph[1].style.display = 'none';
-      payment.children[0].classList.remove("select-payment-method");
-      payment.children[1].className = "credit_card";
+      payment.children[0].className = "credit_card";
     } else if (event.target.value === "paypal") {
       paragraph[0].style.display = "block";
       paragraph[1].style.display = "none";
       creditCard.style.display = "none";
-      payment.children[0].classList.remove('select-payment-method');
-      payment.children[1].classList.remove('credit_card');
+      payment.children[0].classList.remove('credit_card');
     } else if (event.target.value === "bitcoin") {
       paragraph[0].style.display = "none";
       paragraph[1].style.display = "block";
       creditCard.style.display = "none";
-      payment.children[0].classList.remove('select-payment-method');
-      payment.children[1].classList.remove("credit_card");
-    } else if (event.target.value === 'select_method') {
-      paragraph[0].style.display = "none";
-      paragraph[1].style.display = "none";
-      creditCard.style.display = "block";
-      payment.children[0].className = 'select-payment-method';
-      payment.children[1].classList.remove("credit_card");
+      payment.children[0].classList.remove("credit_card");
     }
   });
 
@@ -170,34 +161,28 @@ document.addEventListener('DOMContentLoaded', () => {
     filled out.
   ------------------------------------------------*/
   submitButton.addEventListener('click', (event) => {
-
-    if (payment.children[0].className === 'select-payment-method') {
-      event.preventDefault();
-      payment.className = 'redBorder';
-      invalidPaymentMethod.className = 'red';
-      invalidPaymentMethod.innerHTML = '<h3>Please select a payment method.</h3>';
-    } 
+ 
     if (name.value === '') {
       event.preventDefault();
       name.className = 'redBorder';
       invalidName.className = 'red';
       invalidName.innerHTML = '<h3>You must enter your name for submission.</h3>';
     } 
-    if (payment.children[1].className === 'credit_card') {
+    if (payment.children[0].className === 'credit_card') {
 
-      if (ccNum.value.length > 16 || ccNum.value.length < 13) {
+      if (ccNum.value.length > 16 || ccNum.value.length < 13 || isNaN(ccNum.value)) {
         event.preventDefault();
-        ccNum.className = 'redBorder';
-        invalidCardNumber.className = 'red';
+        ccNum.className = "redBorder";
+        invalidCardNumber.className = "red";
         invalidCardNumber.innerHTML = "<h3>Must have a valid credit card number.</h3>";
       } 
-      if (zip.value.length != 5) {
+      if (zip.value.length != 5 || isNaN(zip.value)) {
         event.preventDefault();
         zip.className = "redBorder";
         invalidZipCode.className = "red";
         invalidZipCode.innerHTML = "<h3>Invalid zip code.</h3>";
       } 
-      if (cvv.value.length != 3) {
+      if (cvv.value.length != 3 || isNaN(cvv.value)) {
         event.preventDefault();
         cvv.className = "redBorder";
         invalidCVV.className = "red";
