@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         amountOwed -= 100;
       } 
     }
-    totalCost.innerHTML = '<h3>Total amount $' + amountOwed + '.00</h3>';
+    totalCost.innerHTML = '<h3 style="color: darkGreen">Total amount $' + amountOwed + '.00</h3>';
   });
 
   /*----------------------------------------------- 
